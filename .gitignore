@@ -1,0 +1,13 @@
+.DS_Store
+*.esm.json
+!extractTGZ.js
+*.js.map
+*.log
+*.*.d.ts
+node_modules
+*.aar
+npm
+
+# Editor directories and files
+.idea
+.vscode
