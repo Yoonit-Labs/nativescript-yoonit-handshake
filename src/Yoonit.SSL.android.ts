@@ -10,8 +10,13 @@
 
 import {
     CertStoreConfigurationBase,
-    CertStoreBase
+    CertStoreBase,
+    SecureDataStoreBase
 } from './Yoonit.SSL.common';
+
+import {
+    ApplicationSettings
+  } from '@nativescript/core';
 
 export class CertStoreConfiguration extends CertStoreConfigurationBase {
     certStoreConfiguration: com.wultra.android.sslpinning.CertStoreConfiguration.Builder
@@ -35,6 +40,10 @@ export class CertStoreConfiguration extends CertStoreConfigurationBase {
 
     public getExpirationUpdateThresholdMillis(): number {
         return this.certStoreConfiguration.getExpirationUpdateThresholdMillis();
+    }
+
+    public getPublicKey(): Array<number> {
+        return this.certStoreConfiguration.getPublicKey();
     }
 
     // Need to be native output to comunicate with CertStore
@@ -79,3 +88,27 @@ export class CertStoreConfiguration extends CertStoreConfigurationBase {
 }
 
 export declare class CertStore extends CertStoreBase {}
+
+export class SecureDataStore extends SecureDataStoreBase {
+
+    public save(data: native.Array<number>, key: string): boolean {
+        const object = {
+            data: data
+        }
+
+        ApplicationSettings.setString(key, JSON.stringify(object));
+
+        return true;
+    }
+
+    public load(key: string): Array<number> {
+        console.log('========= here ========', JSON.parse(ApplicationSettings
+        .getString(key)).data)
+
+        return JSON.parse(ApplicationSettings.getString(key)).data
+    }
+
+    public remove(key: string): void {
+        return ApplicationSettings.remove(key);
+    }
+}

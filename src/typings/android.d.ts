@@ -85,6 +85,40 @@ declare namespace com {
 						public executorService(param0: java.util.concurrent.ExecutorService): com.wultra.android.sslpinning.CertStoreConfiguration.Builder;
 					}
 				}
+			
+				export class CryptoProvider {
+					public static class: java.lang.Class<com.wultra.android.sslpinning.interfaces.CryptoProvider>;
+					/**
+					 * Constructs a new instance of the com.wultra.android.sslpinning.interfaces.CryptoProvider interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 */
+					public constructor(implementation: {
+						ecdsaValidateSignatures(param0: com.wultra.android.sslpinning.interfaces.SignedData, param1: com.wultra.android.sslpinning.interfaces.ECPublicKey): boolean;
+						importECPublicKey(param0: androidNative.Array<number>): com.wultra.android.sslpinning.interfaces.ECPublicKey;
+						hashSha256(param0: androidNative.Array<number>): androidNative.Array<number>;
+						getRandomData(param0: number): androidNative.Array<number>;
+					});
+					public constructor();
+					public getRandomData(param0: number): androidNative.Array<number>;
+					public importECPublicKey(param0: androidNative.Array<number>): com.wultra.android.sslpinning.interfaces.ECPublicKey;
+					public hashSha256(param0: androidNative.Array<number>): androidNative.Array<number>;
+					public ecdsaValidateSignatures(param0: com.wultra.android.sslpinning.interfaces.SignedData, param1: com.wultra.android.sslpinning.interfaces.ECPublicKey): boolean;
+				}
+		
+				export class SecureDataStore {
+					public static class: java.lang.Class<com.wultra.android.sslpinning.interfaces.SecureDataStore>;
+					/**
+					 * Constructs a new instance of the com.wultra.android.sslpinning.interfaces.SecureDataStore interface with the provided implementation. An empty constructor exists calling super() when extending the interface class.
+					 */
+					public constructor(implementation: {
+						save(param0: androidNative.Array<number>, param1: string): boolean;
+						load(param0: string): androidNative.Array<number>;
+						remove(param0: string): void;
+					});
+					public constructor();
+					public load(param0: string): androidNative.Array<number>;
+					public remove(param0: string): void;
+					public save(param0: androidNative.Array<number>, param1: string): boolean;
+				}
 			}
 		}
 	}

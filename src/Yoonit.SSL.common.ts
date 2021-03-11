@@ -9,7 +9,8 @@
 // +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 
 import {
-    CertStoreConfiguration as CertStoreConfigurationDefinition
+    CertStoreConfiguration as CertStoreConfigurationDefinition,
+    SecureDataStore as SecureDataStoreDefinition
 } from '.';
 
 export abstract class CertStoreConfigurationBase implements CertStoreConfigurationDefinition {
@@ -21,6 +22,8 @@ export abstract class CertStoreConfigurationBase implements CertStoreConfigurati
     getPeriodicUpdateIntervalMillis(): void {};
 
     getExpirationUpdateThresholdMillis(): void {};
+
+    getPublicKey(): void {};
 
     getBuild(): void {};
     // BUILDER
@@ -37,3 +40,11 @@ export abstract class CertStoreConfigurationBase implements CertStoreConfigurati
 }
 
 export abstract class CertStoreBase {}
+
+export abstract class SecureDataStoreBase implements SecureDataStoreDefinition {
+    load(key: string): Array<number> { return [1] };
+
+    save(data: native.Array<number>, key: string): boolean { return true };
+
+    remove(key: string): void {}
+}

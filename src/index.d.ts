@@ -20,8 +20,10 @@ export declare class CertStoreConfiguration {
     
     getBuild(): void {}
 
+    getPublicKey(): void {};
+
     // BUILDER
-    Builder({ url, publicKey }: { url: string, publicKey: string}): void {};
+    Builder({ url, publicKey }: { url: string, publicKey: string }): void {};
 
     //SETTER
     setUseChallenge(useChallenge: boolean): void {};
@@ -34,3 +36,11 @@ export declare class CertStoreConfiguration {
 }
 
 export declare class CertStore {}
+
+export abstract class SecureDataStore implements com.wultra.android.sslpinning.SecureDataStore {
+    load(key: string): Array<number> {};
+
+    save(data: native.Array<number>, key: string): boolean { return true };
+
+    remove(key: string): void {}
+}
