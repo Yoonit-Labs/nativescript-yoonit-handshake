@@ -4,8 +4,8 @@
 //
 // +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 // | Yoonit Camera Plugin for NativeScript applications              |
-// | Luigui Delyer, Haroldo Teruya,                                  |
-// | Victor Goulart & Márcio Bruffato @ Cyberlabs AI 2020            |
+// | Luigui Delyer, Gabriel Rizzo,                                   |
+// | Haroldo Teruya & Victor Goulart @ Cyberlabs AI 2020-2021        |
 // +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 
 import {
@@ -14,37 +14,31 @@ import {
 } from '.';
 
 export abstract class CertStoreConfigurationBase implements CertStoreConfigurationDefinition {
-    // GETTERS
-    getServiceUrl(): void {};
 
-    getIdentifier(): void {};
-
-    getPeriodicUpdateIntervalMillis(): void {};
-
-    getExpirationUpdateThresholdMillis(): void {};
-
-    getPublicKey(): void {};
-
-    getBuild(): void {};
     // BUILDER
-    Builder({ url, publicKey }: { url: string, publicKey: string}): void {};
+    Builder({ url, publicKey }: { url: string, publicKey: string}): void {}
 
-    //SETTER
-    setUseChallenge(useChallenge: boolean): void {};
+    // GETTERS
+    getServiceUrl(): void {}
+    getIdentifier(): void {}
+    getPeriodicUpdateIntervalMillis(): void {}
+    getExpirationUpdateThresholdMillis(): void {}
+    getPublicKey(): void {}
+    getBuild(): void {}
 
-    setIdentifier(identifier: string): void {};
-
-    setPeriodicUpdateIntervalMillis(interval: number): void {};
-
-    setExpirationUpdateThresholdMillis(interval: number): void {};
+    // SETTER
+    setUseChallenge(useChallenge: boolean): void {}
+    setIdentifier(identifier: string): void {}
+    setPeriodicUpdateIntervalMillis(interval: number): void {}
+    setExpirationUpdateThresholdMillis(interval: number): void {}
 }
 
 export abstract class CertStoreBase {}
 
 export abstract class SecureDataStoreBase implements SecureDataStoreDefinition {
-    load(key: string): Array<number> { return [1] };
+    load(key: string): Array<number> { return [1]; }
 
-    save(data: native.Array<number>, key: string): boolean { return true };
+    save(data: native.Array<number>, key: string): boolean { return true; }
 
     remove(key: string): void {}
 }

@@ -4,24 +4,10 @@
 </template>
 
 <script>
-import { CertStoreConfiguration, SecureDataStore } from '@yoonit/wultra-ssl-pinning'
+import { CertStoreConfiguration, SecureDataStore } from '@yoonit/nativescript-handshake'
 
   export default {
     data: () => ({
-      cameraLens: 'front',
-      captureType: 'face',
-      imageCaptureAmount: 0,
-      imageCaptureInterval: 500,
-      imageCapture: true,
-      faceDetectionBox: true,
-      faceROI: false,
-      faceROIAreaOffset: true,
-      imagePath: null,
-      faceContours: true,
-      computerVision: true,
-      isWearingMask: false,
-      imageInformationCaptured: "",
-      qrCodeContent: "",
     }),
 
     methods: {
