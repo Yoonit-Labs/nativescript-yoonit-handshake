@@ -4,8 +4,8 @@
 //
 // +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 // | Yoonit Camera Plugin for NativeScript applications              |
-// | Luigui Delyer, Haroldo Teruya,                                  |
-// | Victor Goulart & Márcio Bruffato @ Cyberlabs AI 2020            |
+// | Luigui Delyer, Gabriel Rizzo,                                   |
+// | Haroldo Teruya & Victor Goulart @ Cyberlabs AI 2020-2021        |
 // +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 
 import {
@@ -19,7 +19,7 @@ import {
   } from '@nativescript/core';
 
 export class CertStoreConfiguration extends CertStoreConfigurationBase {
-    certStoreConfiguration: com.wultra.android.sslpinning.CertStoreConfiguration.Builder
+    certStoreConfiguration: com.wultra.android.sslpinning.CertStoreConfiguration.Builder;
 
     // GETTERS
     public getServiceUrl(): java.net.URL {
@@ -94,7 +94,7 @@ export class SecureDataStore extends SecureDataStoreBase {
     public save(data: native.Array<number>, key: string): boolean {
         const object = {
             data: data
-        }
+        };
 
         ApplicationSettings.setString(key, JSON.stringify(object));
 
@@ -102,10 +102,12 @@ export class SecureDataStore extends SecureDataStoreBase {
     }
 
     public load(key: string): Array<number> {
-        console.log('========= here ========', JSON.parse(ApplicationSettings
-        .getString(key)).data)
+        console.log(
+            '========= here ========',
+            JSON.parse(ApplicationSettings.getString(key)).data
+        );
 
-        return JSON.parse(ApplicationSettings.getString(key)).data
+        return JSON.parse(ApplicationSettings.getString(key)).data;
     }
 
     public remove(key: string): void {

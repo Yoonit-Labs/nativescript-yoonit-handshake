@@ -1,7 +1,7 @@
 {
-	"name": "@yoonit/wultra-ssl-pinning",
+	"name": "@yoonit/nativescript-handshake",
 	"version": "1.0.0",
-	"description": "Yoonit Camera have a custom view that shows a preview layer of the front/back camera and detects human faces in it and read qr code.",
+	"description": "The dynamic SSL pinning NativeScript module for Android and iOS",
 	"main": "Yoonit.SSL",
 	"typings": "index.d.ts",
 	"nativescript": {
@@ -12,7 +12,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/Yoonit-Labs/nativescript-yoonit-camera"
+		"url": "https://github.com/Yoonit-Labs/nativescript-yoonit-handshake"
 	},
 	"scripts": {
 		"tsc": "npm i && npm run setup && tsc",
@@ -24,7 +24,7 @@
 		"demo:ios": "cd ../demo-vue && tns run ios",
 		"demo:android": "cd ../demo-vue && tns debug android --debug-brk",
 		"demo:reset": "cd ../demo-vue && npx rimraf -- hooks node_modules platforms && cd ../src && npm i",
-		"plugin:prepare": "npm run build && cd ../demo-vue && tns plugin add ../src && tns plugin remove nativescript-yoonit-camera && npm i && tns plugin add ../src",
+		"plugin:prepare": "npm run build && cd ../demo-vue && tns plugin add ../src && tns plugin remove nativescript-yoonit-handshake && npm i && tns plugin add ../src",
 		"clean": "npm run demo:reset && npx rimraf -- node_modules && npm i"
 	},
 	"keywords": [
@@ -35,7 +35,7 @@
 		"iOS"
 	],
 	"author": {
-		"name": "Luigui Delyer, Haroldo Teruya, Victor Goulart & Márcio Bruffato @ Cyberlabs AI - 2020",
+		"name": "Luigui Delyer, Gabriel Rizzo, Haroldo Teruya & Victor Goulart @ Cyberlabs AI - 2020-2021",
 		"email": "contato@cyberlabs.ai"
 	},
 	"license": "MIT",

@@ -1,7 +1,7 @@
 import { NativeScriptConfig } from '@nativescript/core';
 
 export default {
-  id: 'ai.cyberlabs.yoonit.camera.demo',
+  id: 'com.yoonit.handshake.demo',
   appResourcesPath: 'App_Resources',
   android: {
     v8Flags: '--expose_gc',
