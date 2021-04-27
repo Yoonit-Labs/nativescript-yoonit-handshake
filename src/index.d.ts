@@ -15,3 +15,4 @@ export declare class Handshake {
         result: (result: string) => void
     ): void;
 }
+
