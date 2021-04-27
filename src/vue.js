@@ -3,122 +3,25 @@
 // +-+-+-+-+-+-+
 //
 // +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-// | Yoonit Camera Plugin for NativeScript applications              |
+// | Yoonit Handhskae Plugin for NativeScript applications           |
 // | Luigui Delyer, Gabriel Rizzo,                                   |
 // | Haroldo Teruya & Victor Goulart @ Cyberlabs AI 2020-2021        |
 // +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 
-// import { YoonitCamera } from './Yoonit.Camera'
+import { YoonitHandshake } from './Yoonit.Handshake'
 
-// export default {
-//   install (Vue) {
-//     Vue.registerElement(
-//       'YoonitCamera',
-//       () => YoonitCamera
-//     )
+export default {
+  install (Vue) {
+    Vue.registerElement(
+        'YoonitHandshake',
+        () => YoonitHandshake
+    )
 
-//     Vue.prototype.$yoo = {
-//       ...Vue.prototype.$yoo,
-//       camera: undefined
-//     }
+    Vue.prototype.$yoo = {
+      ...Vue.prototype.$yoo,
+      handshake: new YoonitHandshake()
+    }
 
-//     const destroy = () => {
-//       if (Vue.prototype.$yoo.camera &&
-//           Vue.prototype.$yoo.camera.destroy instanceof Function) {
-//         Vue.prototype.$yoo.camera.destroy()
-//       }
-
-//       Vue.prototype.$yoo = {
-//         ...Vue.prototype.$yoo,
-//         camera: {
-//           registerElement
-//         }
-//       }
-
-//       return Vue.prototype.$yoo.camera
-//     }
-
-//     const registerElement = element => {
-//       if (!element.nativeView) {
-//         return
-//       }
-
-//       const {
-//         nativeView,
-//         requestPermission,
-//         hasPermission,
-//         preview,
-//         stopCapture,
-//         destroy,
-//         toggleLens,
-//         setCameraLens,
-//         getLens,
-//         startCapture,
-//         setImageCapture,
-//         setImageCaptureAmount,
-//         setImageCaptureInterval,
-//         setImageCaptureWidth,
-//         setImageCaptureHeight,
-//         setImageCaptureColorEncoding,
-//         setFaceDetectionBox,
-//         setFacePaddingPercent,
-//         setFaceCaptureMinSize,
-//         setFaceCaptureMaxSize,
-//         setFaceROIEnable,
-//         setFaceROITopOffset,
-//         setFaceROIRightOffset,
-//         setFaceROIBottomOffset,
-//         setFaceROILeftOffset,
-//         setFaceROIMinSize,
-//         setFaceROIAreaOffset,
-//         setFaceROIAreaOffsetColor,
-//         setFaceContours,
-//         setFaceContoursColor,
-//         setComputerVision,
-//         setComputerVisionLoadModels,
-//         computerVisionClearModels
-//       } = element.nativeView
-
-//       Vue.prototype.$yoo.camera = {
-//         ...Vue.prototype.$yoo.camera,
-//         nativeView,
-//         requestPermission,
-//         hasPermission,
-//         preview,
-//         stopCapture,
-//         destroy,
-//         toggleLens,
-//         setCameraLens,
-//         getLens,
-//         startCapture,
-//         setImageCapture,
-//         setImageCaptureAmount,
-//         setImageCaptureInterval,
-//         setImageCaptureWidth,
-//         setImageCaptureHeight,
-//         setImageCaptureColorEncoding,
-//         setFaceDetectionBox,
-//         setFacePaddingPercent,
-//         setFaceCaptureMinSize,
-//         setFaceCaptureMaxSize,
-//         setFaceROIEnable,
-//         setFaceROITopOffset,
-//         setFaceROIRightOffset,
-//         setFaceROIBottomOffset,
-//         setFaceROILeftOffset,
-//         setFaceROIMinSize,
-//         setFaceROIAreaOffset,
-//         setFaceROIAreaOffsetColor,
-//         setFaceContours,
-//         setFaceContoursColor,
-//         setComputerVision,
-//         setComputerVisionLoadModels,
-//         computerVisionClearModels
-//       }
-
-//       return Vue.prototype.$yoo.camera
-//     }
-
-//     return destroy()
-//   }
-// }
+    return Vue.prototype.$yoo.handshake
+  }
+}

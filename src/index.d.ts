@@ -3,35 +3,21 @@
 // +-+-+-+-+-+-+
 //
 // +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-// | Yoonit Camera Plugin for NativeScript applications              |
+// | Yoonit Handshake Plugin for NativeScript applications           |
 // | Luigui Delyer, Gabriel Rizzo,                                   |
 // | Haroldo Teruya & Victor Goulart @ Cyberlabs AI 2020-2021        |
 // +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 
-export declare class CertStoreConfiguration {
+import { EventData } from '@nativescript/core';
 
-    // BUILDER
-    Builder({ url, publicKey }: { url: string, publicKey: string }): void;
-
-    // GETTERS
-    getServiceUrl(): void;
-    getIdentifier(): void;
-    getPeriodicUpdateIntervalMillis(): void;
-    getExpirationUpdateThresholdMillis(): void;
-    getBuild(): void;
-    getPublicKey(): void;
-
-    // SETTER
-    setUseChallenge(useChallenge: boolean): void;
-    setIdentifier(identifier: string): void;
-    setPeriodicUpdateIntervalMillis(interval: number): void;
-    setExpirationUpdateThresholdMillis(interval: number): void;
+export interface ResultEventData extends EventData {
+    type: string;
+    result: string;
 }
 
-export declare class CertStore {}
+export declare class Handshake {
+    updateFingerprints(publicKey: string, serviceUrl: string): void;
 
-export abstract class SecureDataStore implements com.wultra.android.sslpinning.SecureDataStore {
-    load(key: string): Array<number>;
-    save(data: native.Array<number>, key: string): boolean;
-    remove(key: string): void;
+    on(eventNames: string, callback: (data: EventData) => void, thisArg?: any);
+    on(event: result, callback: (args: ResultEventData) => void, thisArg?: any);
 }
