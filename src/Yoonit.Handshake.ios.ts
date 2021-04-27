@@ -1,61 +1,1 @@
-// +-+-+-+-+-+-+
-// |y|o|o|n|i|t|
-// +-+-+-+-+-+-+
-//
-// +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-// | Yoonit Handshake Plugin for NativeScript applications           |
-// | Luigui Delyer, Gabriel Rizzo,                                   |
-// | Haroldo Teruya & Victor Goulart @ Cyberlabs AI 2020-2021        |
-// +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-
-import '@nativescript/core';
-import { HandshakeBase } from "./Yoonit.Handshake.common";
-
-export class YoonitHandshake extends HandshakeBase {
-
-    native: Handshake;
-     handshakeListener: HandshakeEventListener;
-
-    constructor() {
-        super();
-
-        this.native = Handshake.new();
-        this.handshakeListener = HandshakeEventListener.initWithOwner(new WeakRef(this));
-        this.native.handshakeListener = this.handshakeListener;
-    }
-
-    destroy(): void {
-        this.native.handshakeListener = null;
-        (<any>this.native).owner = null;
-    }
-
-    public updateFingerprints(
-        publicKey: string,
-        serviceUrl: string,
-        callback: (result: string) => void
-    ): void {
-        this.handshakeListener.resultCallback = callback;
-        this.native.updateFingerprints(publicKey, serviceUrl);
-    }
-}
-
-@ObjCClass(HandshakeListener)
-@NativeClass
-class HandshakeEventListener extends NSObject implements HandshakeListener {
-
-    private owner: WeakRef<YoonitHandshake>;
-    public resultCallback: (result: string) => void;
-
-    public static initWithOwner(owner: WeakRef<YoonitHandshake>): HandshakeEventListener {
-        const listener = HandshakeEventListener.new() as HandshakeEventListener;
-        listener.owner = owner;
-
-        return listener;
-    }
-
-    public onResult(result: HandshakeResult): void {
-        if (this.resultCallback && this.owner.get()) {
-            this.resultCallback(result.toString());
-        }
-    }
-}
+// +-+-+-+-+-+-+// |y|o|o|n|i|t|// +-+-+-+-+-+-+//// +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+// | Yoonit Handshake Plugin for NativeScript applications           |// | Luigui Delyer, Gabriel Rizzo,                                   |// | Haroldo Teruya & Victor Goulart @ Cyberlabs AI 2020-2021        |// +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+import '@nativescript/core';import { HandshakeBase } from "./Yoonit.Handshake.common";import Result from './Result';export class YoonitHandshake extends HandshakeBase {    native: Handshake;    handshakeListener: HandshakeEventListener;    constructor() {        super();        this.native = Handshake.new();        this.handshakeListener = HandshakeEventListener.initWithOwner(new WeakRef(this));        this.native.handshakeListener = this.handshakeListener;    }    destroy(): void {        this.native.handshakeListener = null;        (<any>this.native).owner = null;    }    public updateFingerprints(        publicKey: string,        serviceUrl: string,        callback: (result: string) => void    ): void {        this.handshakeListener.resultCallback = callback;        this.native.updateFingerprints(publicKey, serviceUrl);    }}@ObjCClass(HandshakeListener)@NativeClassclass HandshakeEventListener extends NSObject implements HandshakeListener {    private owner: WeakRef<YoonitHandshake>;    public resultCallback: (result: string) => void;    public static initWithOwner(owner: WeakRef<YoonitHandshake>): HandshakeEventListener {        const listener = HandshakeEventListener.new() as HandshakeEventListener;        listener.owner = owner;        return listener;    }    public onResult(result: HandshakeResult): void {        if (!this.resultCallback || !this.owner.get()) {            return;        }        switch (result) {            case HandshakeResult.OK:                this.resultCallback(Result.OK);                return;            case HandshakeResult.STORE_IS_EMPTY:                this.resultCallback(Result.STORE_IS_EMPTY);                return;            case HandshakeResult.NETWORK_ERROR:                this.resultCallback(Result.NETWORK_ERROR);                return;            case HandshakeResult.INVALID_DATA:                this.resultCallback(Result.INVALID_DATA);                return;            case HandshakeResult.INVALID_SIGNATURE:                this.resultCallback(Result.INVALID_SIGNATURE);                return;            case HandshakeResult.INVALID_URL_SERVICE:                this.resultCallback(Result.INVALID_URL_SERVICE);                return;        }    }}

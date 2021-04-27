@@ -20,7 +20,7 @@ declare namespace ai {
 
 				export class Handshake {
 					public constructor(param0: globalAndroid.Context)
-					public updateFingerprint(param0: string, param1: string, param2: (result: string) => void)
+					public updateFingerprint(param0: string, param1: string, param2: (result: string) => void);
 				}
 			}
 		}

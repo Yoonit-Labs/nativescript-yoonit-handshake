@@ -11,7 +11,6 @@
 import { Handshake } from './index';
 
 export abstract class HandshakeBase implements Handshake {
-
     public updateFingerprints(
         publicKey: string,
         serviceUrl: string,
