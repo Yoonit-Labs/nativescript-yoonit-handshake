@@ -19,12 +19,12 @@ export class YoonitHandshake extends HandshakeBase {
 
     constructor() {
         super();
+
         application.on(application.launchEvent, () => {
             let context = application.android.context;
             this.handshakeListener = HandshakeEventListener.initWithOwner(new WeakRef(this));
             this.native = new com.yoonit.handshake.Handshake(context, this.handshakeListener);
         });
-        
     }
 
     public updateFingerprints(

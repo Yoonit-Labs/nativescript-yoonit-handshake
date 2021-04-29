@@ -33,12 +33,12 @@ export default {
           switch (result) {
             case "OK":
               this.updateRequestResult = "OK"
-              this.updateRequestDescription = "- Everything is OK;\n- No action is required;"
+              this.updateRequestDescription = "- Everything is OK; - No action is required;"
               return
 
             case "STORE_IS_EMPTY":
               this.updateRequestResult = "STORE_IS_EMPTY"
-              this.updateRequestDescription = "- The update request succeeded;\n- Result is still an empty list of certificates;\n- May loading & validating of remote data succeeded;\n- All loaded certificates are already expired;"
+              this.updateRequestDescription = "- The update request succeeded; - Result is still an empty list of certificates; - May loading & validating of remote data succeeded; - All loaded certificates are already expired;"
               return
 
             case "NETWORK_ERROR":
