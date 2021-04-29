@@ -1,0 +1,10 @@
+const Result = {
+    OK: "OK",
+    STORE_IS_EMPTY: "STORE_IS_EMPTY",
+    NETWORK_ERROR: "NETWORK_ERROR",
+    INVALID_DATA: "INVALID_DATA",
+    INVALID_SIGNATURE: "INVALID_SIGNATURE",
+    INVALID_URL_SERVICE: "INVALID_URL_SERVICE",
+};
+export default Result;
+//# sourceMappingURL=Result.js.map
