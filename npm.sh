@@ -50,13 +50,13 @@ git tag v$PACKAGE_VERSION
 git push --tags
 cd ..
 rm -rf npm
-rm -rf src/Yoonit.SSL.android.js
-rm -rf src/Yoonit.SSL.android.d.ts
-rm -rf src/Yoonit.SSL.android.js.map
-rm -rf src/Yoonit.SSL.ios.js
-rm -rf src/Yoonit.SSL.ios.d.ts
-rm -rf src/Yoonit.SSL.ios.js.map
-rm -rf src/Yoonit.SSL.common.js
-rm -rf src/Yoonit.SSL.common.d.ts
-rm -rf src/Yoonit.SSL.common.js.map
+rm -rf src/Yoonit.Handshake.android.js
+rm -rf src/Yoonit.Handshake.android.d.ts
+rm -rf src/Yoonit.Handshake.android.js.map
+rm -rf src/Yoonit.Handshake.ios.js
+rm -rf src/Yoonit.Handshake.ios.d.ts
+rm -rf src/Yoonit.Handshake.ios.js.map
+rm -rf src/Yoonit.Handshake.common.js
+rm -rf src/Yoonit.Handshake.common.d.ts
+rm -rf src/Yoonit.Handshake.common.js.map
 pause

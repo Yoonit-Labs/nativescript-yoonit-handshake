@@ -15,4 +15,7 @@ dependencies {
 
     implementation 'androidx.appcompat:appcompat:1.2.0'
 	implementation 'com.wultra.android.sslpinning:wultra-ssl-pinning:1.2.2'
+    implementation 'com.wultra.android.powerauth:powerauth-sdk:1.4.5'
+
+    implementation 'com.github.Yoonit-Labs:android-yoonit-handshake:1.0.0'
 }

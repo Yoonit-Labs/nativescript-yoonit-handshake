@@ -1,8 +1,8 @@
 {
 	"name": "@yoonit/nativescript-handshake",
 	"version": "1.0.0",
-	"description": "The dynamic SSL pinning NativeScript module for Android and iOS",
-	"main": "Yoonit.SSL",
+	"description": "A NativeScript NPM implementing dynamic SSL pinning for Android and iOS.",
+	"main": "Yoonit.Handshake",
 	"typings": "index.d.ts",
 	"nativescript": {
 		"platforms": {

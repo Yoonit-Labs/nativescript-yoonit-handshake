@@ -8,10 +8,12 @@
 // | Haroldo Teruya & Victor Goulart @ Cyberlabs AI 2020-2021        |
 // +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 
-export declare class Handshake {
-    updateFingerprints(
+import { Handshake } from './index';
+
+export abstract class HandshakeBase implements Handshake {
+    public updateFingerprints(
         publicKey: string,
         serviceUrl: string,
         result: (result: string) => void
-    ): void;
+    ): void {}
 }
