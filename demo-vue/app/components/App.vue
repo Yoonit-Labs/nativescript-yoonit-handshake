@@ -27,8 +27,8 @@ export default {
   methods: {
     updateFingerprint() {
       this.$yoo.handshake.updateFingerprints(
-        "BEcTK0YpgYom5ifxUyX5yKDNUBaaLQpWxU361n+ihb5EAnKvABWde1P6lnZR3CR9ykrTLrO0ANdivFabS20iGOA=",
-        "https://y9ggj3nnv8.execute-api.us-east-1.amazonaws.com/v1/sslpinning",
+        "",
+        "",
         (result) => {
           switch (result) {
             case "OK":
@@ -48,7 +48,7 @@ export default {
 
             case "INVALID_DATA":
               this.updateRequestResult = "INVALID_DATA"
-              this.updateRequestDescription = "The update request returned the data which did not pass the sifnature validation."
+              this.updateRequestDescription = "The update request returned the data which did not pass the signature validation."
               return
 
             case "INVALID_SIGNATURE":
